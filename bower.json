@@ -22,6 +22,6 @@
     "tests"
   ],
   "dependencies": {
-    "bacon": "~0.7.18"
+    "polymer": "Polymer/polymer#~0.3.4"
   }
 }

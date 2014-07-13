@@ -1,0 +1,104 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+
+<polymer-element name="tile-view" attributes="image">
+	<template>
+		<style>
+			tile-view {
+				width: 400px;
+				height: 400px;
+				margin: 0px auto;
+				border: 1px solid #999;
+				position: absolute;
+			}
+
+			.tile {
+				background-repeat: no-repeat;
+				background-size: 400px 400px;
+				width: 100px;
+				height: 100px;
+				position: absolute;
+
+				transition: 0.3s ease-in-out all;
+			}
+		</style>
+		<template repeat="{{tile in tiles}}">
+			<div class="tile"
+					 data-i="{{tile.i}}"
+					 style="background-image: url({{image}}); top: {{tile.top}}px; left: {{tile.left}}px; background-position: -{{tile.positionLeft}}px -{{tile.positionTop}}px"
+					 on-click={{moveTile}}></div>
+		</template>
+	</template>
+	<script>
+		var shuffle = function(array) {
+			for (var i = array.length - 1; i >= 1; i -= 1) {
+				var j = Math.floor(Math.random() * (i + 1));
+				var iTop = array[i].positionTop;
+				var iLeft = array[i].positionLeft;
+				array[i].positionTop = array[j].positionTop;
+				array[i].positionLeft = array[j].positionLeft;
+				array[j].positionTop = iTop;
+				array[j].positionLeft = iLeft;
+			}
+			return array;
+		};
+
+		var tilePosition = function(tileSize, cols, rows, i) {
+				var column = (i % cols);
+				var row = Math.floor(i / rows);
+
+				return {
+					top: tileSize * row,
+					left: tileSize * column
+				};
+		};
+
+		Polymer('tile-view', {
+			moveTile: function(e, detail, sender) {
+				var i = parseInt(sender.getAttribute("data-i"), 0);
+				var newPosition = this.tilePosition(this.openTile);
+				var tile = this.tiles[this.tiles.length - i];
+				var oldPosition = tile.position;
+				tile.position = this.openTile;
+				tile.top = newPosition.top;
+				tile.left = newPosition.left;
+				this.openTile = oldPosition;
+			},
+			ready: function() {
+				var tileSize = 100;
+				var tileViewSize = 400;
+				var cols = tileViewSize / tileSize;
+				var rows = cols;
+				var numTiles = Math.pow(cols, 2);
+
+				this.tilePosition = (function() {
+					var positions = [];
+					return function(i) {
+						if (!positions[i]) {
+							positions[i] = tilePosition(tileSize, cols, rows, i);
+						}
+
+						return positions[i];
+					};
+				}());
+
+				this.tiles = [];
+
+				for (var i = numTiles - 1; i >= 1; i -= 1) {
+					var p = this.tilePosition(i);
+
+					this.tiles.push({
+						i: i,
+						position: i,
+						top: p.top,
+						left: p.left,
+						positionTop: p.top,
+						positionLeft: p.left
+					});
+				}
+
+				this.tiles = shuffle(this.tiles);
+				this.openTile = 0;
+			}
+		});
+	</script>
+</polymer-element>
