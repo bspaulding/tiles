@@ -1,0 +1,27 @@
+{
+  "name": "tiles",
+  "version": "0.0.0",
+  "authors": [
+    "Bradley J. Spaulding"
+  ],
+  "description": "A picture tile-scramble game",
+  "keywords": [
+    "game",
+    "tile",
+    "scramble",
+    "picture"
+  ],
+  "license": "MIT",
+  "homepage": "http://github.com/bspaulding/tiles",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bacon": "~0.7.18"
+  }
+}
