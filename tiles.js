@@ -109,10 +109,16 @@ function isInOrder() {
   return all(document.querySelectorAll(".tiles>.tile"), tileInPosition);
 }
 
+function incrementMoves() {
+  var moveCount = document.querySelector(".move-count");
+  moveCount.textContent = parseInt(moveCount.textContent, 10) + 1;
+}
+
 function swapWithEmpty(tile) {
   var empty = document.querySelector(".tiles>.tile.empty");
   if (adjacent(tile, empty)) {
     swapTiles(tile, empty);
+    incrementMoves();
     if (isInOrder()) {
       alert("Yay!");
     }
