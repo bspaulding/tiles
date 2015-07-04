@@ -1,3 +1,24 @@
+var currentImage = 0;
+var imageUrls = [
+  "https://download.unsplash.com/photo-1428278953961-a8bc45e05f72",
+  "https://download.unsplash.com/photo-1433959352364-9314c5b6eb0b",
+  "https://download.unsplash.com/photo-1433838552652-f9a46b332c40",
+  "https://download.unsplash.com/photo-1430916273432-273c2db881a0",
+  "https://download.unsplash.com/photo-1430866880825-336a7d7814eb",
+  "https://download.unsplash.com/photo-1430126833726-4a091c572f3c",
+  "https://download.unsplash.com/photo-1430760814266-9c81759e5e55",
+  "https://download.unsplash.com/photo-1428865798880-73444f4cbefc",
+  "https://download.unsplash.com/photo-1422207134147-65fb81f59e38"
+];
+
+function nextImage() {
+  currentImage += 1;
+  var tiles = document.querySelectorAll(".tiles>.tile");
+  for (var i = 0; i < tiles.length; i += 1) {
+    tiles[i].style.backgroundImage = "url(" + imageUrls[currentImage] + ")";
+  }
+}
+
 function reveal() {
   var tiles = document.querySelectorAll(".tiles>.tile");
   for (var i = 0; i < tiles.length; i += 1) {
