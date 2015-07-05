@@ -172,4 +172,5 @@ var tiles = document.querySelectorAll(".tiles>.tile");
 for (var i = 0; i < tiles.length; i += 1) {
   var tile = tiles[i];
   tile.addEventListener("click", makeSwapWithEmpty(tile));
+  tile.addEventListener("touchstart", makeSwapWithEmpty(tile));
 }

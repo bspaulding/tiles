@@ -16,6 +16,10 @@ button {
   font-family: inherit;
   font-size: 1em;
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
 }
 
 button:active {

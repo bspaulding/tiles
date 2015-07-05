@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Tiles</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
     <link rel="stylesheet" href="tiles.css"/>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
   </head>
@@ -26,7 +27,7 @@
       <div class="tile tile-4-4 position-4-4"></div>
     </div>
     <div class="controls">
-      <button onmousedown="reveal()" onmouseup="unreveal()">Reveal</button>
+      <button ontouchstart="reveal()" onmousedown="reveal()" ontouchend="unreveal()" onmouseup="unreveal()">Reveal</button>
       <button onclick="shuffleTiles()">Shuffle Tiles</button>
       <button onclick="nextImage()">Next Image</button>
     </div>
