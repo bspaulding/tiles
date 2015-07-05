@@ -28,9 +28,9 @@ function reveal() {
 }
 
 function unreveal() {
-  if (isInOrder()) { return; }
-  var tiles = document.querySelectorAll(".tiles>.tile");
   var order = currentOrder();
+  if (!order) { return; }
+  var tiles = document.querySelectorAll(".tiles>.tile");
   for (var i = 0; i < tiles.length; i += 1) {
     var tile = tiles[i];
     var position = positionForOrder(order[i]);
