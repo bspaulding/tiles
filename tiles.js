@@ -28,6 +28,7 @@ function reveal() {
 }
 
 function unreveal() {
+  if (isInOrder()) { return; }
   var tiles = document.querySelectorAll(".tiles>.tile");
   var order = currentOrder();
   for (var i = 0; i < tiles.length; i += 1) {
