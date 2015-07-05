@@ -2,10 +2,40 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+button {
+  margin: 0px;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 2px;
+  background: #3498db;
+  color: white;
+  font-family: inherit;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+button:active {
+  background: #2980b9;
+}
+
+button::-moz-focus-inner {
+  padding: 0px;
+  border: none;
+}
+
+.moves,
+.controls {
+  text-align: center;
+  margin: 20px 0px;
+}
+
 .tiles {
   width: 400px;
   height: 400px;
-  border: 1px solid #ececec;
   margin: 0px auto;
   position: relative;
 }

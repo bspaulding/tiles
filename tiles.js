@@ -62,6 +62,7 @@ function positionForOrder(order) {
 }
 
 function shuffleTiles() {
+  setMoves(0);
   var order = currentOrder(newOrder());
   for (var i = 0; i < order.length; i += 1) {
     var tileNumber = positionForOrder(i);
@@ -131,9 +132,18 @@ function isInOrder() {
   return all(document.querySelectorAll(".tiles>.tile"), tileInPosition);
 }
 
-function incrementMoves() {
+function moves() {
   var moveCount = document.querySelector(".move-count");
-  moveCount.textContent = parseInt(moveCount.textContent, 10) + 1;
+  return parseInt(moveCount.textContent, 10);
+}
+
+function setMoves(n) {
+  var moveCount = document.querySelector(".move-count");
+  moveCount.textContent = n;
+}
+
+function incrementMoves() {
+  setMoves(moves() + 1);
 }
 
 function swapWithEmpty(tile) {
