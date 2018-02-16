@@ -47,7 +47,8 @@ button::-moz-focus-inner {
 .tiles>.tile {
   width: 25%;
   height: 25%;
-  background-image: url("https://download.unsplash.com/photo-1428278953961-a8bc45e05f72");
+  /* background-image: url("https://download.unsplash.com/photo-1428278953961-a8bc45e05f72"); */
+  background-image: url("images/photo-1428278953961-a8bc45e05f72.jpeg");
   background-size: auto 400%;
   position: absolute;
   transition: all 0.3s ease;

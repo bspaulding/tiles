@@ -1,14 +1,34 @@
+var Timer = (function() {
+  function Timer() {
+  }
+
+  Timer.prototype.start = function start() {
+    if (!this.start) {
+      this.start = new Date();
+    }
+  };
+
+  Timer.prototype.stop = function stop() {
+    if (!this.end) {
+      this.end = new Date();
+    }
+  };
+
+  return Timer;
+}());
+
 var currentImage = 0;
+// https://download.unsplash.com/
 var imageUrls = [
-  "https://download.unsplash.com/photo-1428278953961-a8bc45e05f72",
-  "https://download.unsplash.com/photo-1433959352364-9314c5b6eb0b",
-  "https://download.unsplash.com/photo-1433838552652-f9a46b332c40",
-  "https://download.unsplash.com/photo-1430916273432-273c2db881a0",
-  "https://download.unsplash.com/photo-1430866880825-336a7d7814eb",
-  "https://download.unsplash.com/photo-1430126833726-4a091c572f3c",
-  "https://download.unsplash.com/photo-1430760814266-9c81759e5e55",
-  "https://download.unsplash.com/photo-1428865798880-73444f4cbefc",
-  "https://download.unsplash.com/photo-1422207134147-65fb81f59e38"
+  "/images/photo-1428278953961-a8bc45e05f72.jpeg",
+  "/images/photo-1433959352364-9314c5b6eb0b.jpeg",
+  "/images/photo-1433838552652-f9a46b332c40.jpeg",
+  "/images/photo-1430916273432-273c2db881a0.jpeg",
+  "/images/photo-1430866880825-336a7d7814eb.jpeg",
+  "/images/photo-1430126833726-4a091c572f3c.jpeg",
+  "/images/photo-1430760814266-9c81759e5e55.jpeg",
+  "/images/photo-1428865798880-73444f4cbefc.jpeg",
+  "/images/photo-1422207134147-65fb81f59e38.jpeg"
 ];
 
 function nextImage() {
